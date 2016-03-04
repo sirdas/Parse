@@ -13,7 +13,7 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.initializeWithConfiguration(
@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://cryptic-spire-83060.herokuapp.com/parse"
             })
         )
+        if PFUser.currentUser() != nil {
+            let vc = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
+                as! UITabBarController
+            window?.rootViewController = vc
+        }
         return true
     }
 

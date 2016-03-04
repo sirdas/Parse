@@ -17,11 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECf-Vp-Unq">
-                                <rect key="frame" x="44" y="163" width="233" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3b-b1-HSi">
                                 <rect key="frame" x="137" y="241" width="47" height="30"/>
                                 <state key="normal" title="Sign In"/>
@@ -41,6 +36,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECf-Vp-Unq">
+                                <rect key="frame" x="44" y="163" width="233" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -48,17 +48,17 @@
                     <connections>
                         <outlet property="passwordField" destination="ECf-Vp-Unq" id="8Vf-YY-3UD"/>
                         <outlet property="usernameField" destination="cAZ-8C-0fi" id="0Dk-2R-uOA"/>
-                        <segue destination="CnK-xs-Osp" kind="presentation" identifier="loginSegue" id="eMq-2l-8Wc"/>
+                        <segue destination="ID4-OI-hy6" kind="presentation" identifier="loginSegue" id="eMq-2l-8Wc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885" y="490"/>
+            <point key="canvasLocation" x="699" y="832"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="wsb-BG-SpA">
             <objects>
-                <viewController id="CnK-xs-Osp" sceneMemberID="viewController">
+                <viewController title="Home" id="CnK-xs-Osp" customClass="ViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vko-DR-7RE"/>
                         <viewControllerLayoutGuide type="bottom" id="Et5-ce-HXq"/>
@@ -68,11 +68,94 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="hFo-NT-HcI">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-5"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
+                    </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Tb-Xb-MDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1264" y="490"/>
+            <point key="canvasLocation" x="1414" y="832"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Eau-GQ-F7q">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="ID4-OI-hy6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="oDQ-yb-YHW">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="CnK-xs-Osp" kind="relationship" relationship="viewControllers" id="eqo-Bm-5hS"/>
+                        <segue destination="udd-pI-YvO" kind="relationship" relationship="viewControllers" id="owa-uL-9nc"/>
+                        <segue destination="slL-xP-kol" kind="relationship" relationship="viewControllers" id="k5z-W4-M9e"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iPD-O6-A4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="832"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="0I2-bR-lJn">
+            <objects>
+                <viewController title="Profile" id="slL-xP-kol" customClass="ProfileViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lxx-bI-kaW"/>
+                        <viewControllerLayoutGuide type="bottom" id="g8w-bO-6l8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uoC-lG-Kye">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zja-Lj-pij">
+                                <rect key="frame" x="130" y="269" width="60" height="30"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="onSignOut:" destination="slL-xP-kol" eventType="touchUpInside" id="Jnm-Nf-Hhe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="gxy-Ng-glY">
+                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ObQ-ZT-rLI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1414" y="210"/>
+        </scene>
+        <!--Photos-->
+        <scene sceneID="cdL-os-l5n">
+            <objects>
+                <viewController title="Photos" id="udd-pI-YvO" customClass="CameraViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="phH-0n-aH0"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Ac-br-2yO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9WA-5M-WUY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Capture" image="capture" id="95e-fb-9mf">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
+                    </tabBarItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mWM-zR-cte" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1414" y="1456"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="capture" width="43" height="43"/>
+        <image name="home" width="54" height="54"/>
+        <image name="profile" width="43" height="43"/>
+    </resources>
 </document>
