@@ -66,6 +66,46 @@
                     <view key="view" contentMode="scaleToFill" id="fsD-5j-Zd0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="357" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VoT-zq-8Em">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="357" id="7W6-Mu-52G">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="357"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7W6-Mu-52G" id="EpZ-dO-qhK">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="356"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PdR-2T-E0w">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="320" id="VLF-UK-6Lt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSI-LT-h0e">
+                                                    <rect key="frame" x="8" y="327" width="304" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="WSI-LT-h0e" secondAttribute="bottom" constant="8" id="6iw-QK-nsk"/>
+                                                <constraint firstAttribute="trailing" secondItem="WSI-LT-h0e" secondAttribute="trailing" constant="8" id="7B7-jp-G0E"/>
+                                                <constraint firstItem="PdR-2T-E0w" firstAttribute="top" secondItem="EpZ-dO-qhK" secondAttribute="top" id="OgI-bZ-Zfa"/>
+                                                <constraint firstItem="WSI-LT-h0e" firstAttribute="leading" secondItem="EpZ-dO-qhK" secondAttribute="leading" constant="8" id="QPr-1X-zga"/>
+                                                <constraint firstItem="PdR-2T-E0w" firstAttribute="leading" secondItem="EpZ-dO-qhK" secondAttribute="leading" id="aWA-pw-QfM"/>
+                                                <constraint firstItem="WSI-LT-h0e" firstAttribute="top" secondItem="PdR-2T-E0w" secondAttribute="bottom" constant="7" id="eS7-pc-zAK"/>
+                                                <constraint firstAttribute="trailing" secondItem="PdR-2T-E0w" secondAttribute="trailing" id="gfd-Lv-nPP"/>
+                                                <constraint firstItem="PdR-2T-E0w" firstAttribute="centerX" secondItem="EpZ-dO-qhK" secondAttribute="centerX" id="mmx-8c-jqM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="hFo-NT-HcI">
@@ -73,6 +113,9 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="VoT-zq-8Em" id="Xgk-Pv-Fvr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Tb-Xb-MDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,13 +183,62 @@
                     <view key="view" contentMode="scaleToFill" id="9WA-5M-WUY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a caption here." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WrH-wv-xCe">
+                                <rect key="frame" x="20" y="419" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="jnK-wb-COS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBv-d6-Ctb">
+                                <rect key="frame" x="134" y="464" width="53" height="30"/>
+                                <state key="normal" title="Submit!"/>
+                                <connections>
+                                    <action selector="onSubmit:" destination="udd-pI-YvO" eventType="touchUpInside" id="A4z-n9-XOZ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="407-aw-rRA">
+                                <rect key="frame" x="0.0" y="70" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="TEL-cZ-5SN"/>
+                                    <constraint firstAttribute="height" constant="320" id="nVI-hA-65K"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehn-sK-L1D">
+                                <rect key="frame" x="0.0" y="70" width="320" height="320"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Select a photo">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSelect:" destination="udd-pI-YvO" eventType="touchUpInside" id="DbU-4H-vKB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WrH-wv-xCe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9WA-5M-WUY" secondAttribute="leading" constant="20" id="NQg-zu-mf4"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WrH-wv-xCe" secondAttribute="trailing" constant="20" id="OHG-rZ-AQe"/>
+                            <constraint firstItem="JBv-d6-Ctb" firstAttribute="top" secondItem="WrH-wv-xCe" secondAttribute="bottom" constant="15" id="Sea-3O-K3w"/>
+                            <constraint firstItem="WrH-wv-xCe" firstAttribute="top" secondItem="407-aw-rRA" secondAttribute="bottom" constant="29" id="foe-DO-alE"/>
+                            <constraint firstItem="407-aw-rRA" firstAttribute="top" secondItem="phH-0n-aH0" secondAttribute="bottom" constant="50" id="fyD-hE-ewd"/>
+                            <constraint firstItem="407-aw-rRA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9WA-5M-WUY" secondAttribute="leading" id="m6e-YH-uwC"/>
+                            <constraint firstItem="JBv-d6-Ctb" firstAttribute="centerX" secondItem="9WA-5M-WUY" secondAttribute="centerX" id="pPw-ig-Gsp"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="407-aw-rRA" secondAttribute="trailing" id="uhi-cA-oqZ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Capture" image="capture" id="95e-fb-9mf">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="captionField" destination="WrH-wv-xCe" id="vb8-hV-sGo"/>
+                        <outlet property="photo" destination="407-aw-rRA" id="a2e-oY-ObY"/>
+                        <outlet property="selectButton" destination="Ehn-sK-L1D" id="42p-Yg-ccb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWM-zR-cte" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
