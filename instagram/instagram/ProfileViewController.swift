@@ -24,7 +24,8 @@ class ProfileViewController: UIViewController {
     
     @IBAction func onSignOut(sender: AnyObject) {
         PFUser.logOut()
-        self.dismissViewControllerAnimated(true, completion: {})
+        tabBarController!.dismissViewControllerAnimated(true, completion: {})
+
     }
 
     /*

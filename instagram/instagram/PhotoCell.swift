@@ -12,14 +12,14 @@ import ParseUI
 
 class PhotoCell: UITableViewCell {
 
-    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var photoView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
     
     var post: PFObject! {
         didSet {
             self.photoView.file = post["image"] as? PFFile
             self.photoView.loadInBackground()
-            self.captionLabel.text = post["caption"]
+            self.captionLabel.text = post["caption"] as? String
         }
     }
     

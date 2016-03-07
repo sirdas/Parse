@@ -78,13 +78,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="356"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PdR-2T-E0w">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PdR-2T-E0w" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="320" id="VLF-UK-6Lt"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSI-LT-h0e">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSI-LT-h0e">
                                                     <rect key="frame" x="8" y="327" width="304" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,8 +97,8 @@
                                                 <constraint firstItem="PdR-2T-E0w" firstAttribute="top" secondItem="EpZ-dO-qhK" secondAttribute="top" id="OgI-bZ-Zfa"/>
                                                 <constraint firstItem="WSI-LT-h0e" firstAttribute="leading" secondItem="EpZ-dO-qhK" secondAttribute="leading" constant="8" id="QPr-1X-zga"/>
                                                 <constraint firstItem="PdR-2T-E0w" firstAttribute="leading" secondItem="EpZ-dO-qhK" secondAttribute="leading" id="aWA-pw-QfM"/>
-                                                <constraint firstItem="WSI-LT-h0e" firstAttribute="top" secondItem="PdR-2T-E0w" secondAttribute="bottom" constant="7" id="eS7-pc-zAK"/>
                                                 <constraint firstAttribute="trailing" secondItem="PdR-2T-E0w" secondAttribute="trailing" id="gfd-Lv-nPP"/>
+                                                <constraint firstItem="WSI-LT-h0e" firstAttribute="top" secondItem="PdR-2T-E0w" secondAttribute="bottom" constant="7" id="kBA-ha-GyB"/>
                                                 <constraint firstItem="PdR-2T-E0w" firstAttribute="centerX" secondItem="EpZ-dO-qhK" secondAttribute="centerX" id="mmx-8c-jqM"/>
                                             </constraints>
                                         </tableViewCellContentView>

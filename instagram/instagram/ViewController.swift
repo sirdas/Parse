@@ -18,6 +18,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -31,13 +36,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // fetch data asynchronously
         query.findObjectsInBackgroundWithBlock { (posts: [PFObject]?, error: NSError?) -> Void in
-            self.tableView.reloadData()
-            if let posts = posts {
-                // do something with the data fetched
+            
+            if error == nil {
+                self.posts = posts! as [PFObject]
+                self.tableView.reloadData()
+                
             } else {
                 // handle error
                 print(error?.localizedDescription)
             }
+            
         }
     }
 
@@ -57,6 +65,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
+        cell.post = posts![indexPath.row] as PFObject
+        
         return cell
     }
 
