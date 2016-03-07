@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -46,8 +47,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if instaPosts != nil {
-            return instaPosts!.count
+        if posts != nil {
+            return posts!.count
         } else {
             return 0
         }
@@ -55,10 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("HRC", forIndexPath: indexPath) as! InstaPostCellTableViewCell
-        
-        cell.getPhotoandCaption = instaPosts[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
         return cell
     }
 

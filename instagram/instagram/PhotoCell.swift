@@ -7,9 +7,22 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class PhotoCell: UITableViewCell {
 
+    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var captionLabel: UILabel!
+    
+    var post: PFObject! {
+        didSet {
+            self.photoView.file = post["image"] as? PFFile
+            self.photoView.loadInBackground()
+            self.captionLabel.text = post["caption"]
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

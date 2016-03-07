@@ -71,7 +71,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="357" id="7W6-Mu-52G">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="357" id="7W6-Mu-52G" customClass="PhotoCell" customModule="instagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="357"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7W6-Mu-52G" id="EpZ-dO-qhK">
@@ -102,6 +102,10 @@
                                                 <constraint firstItem="PdR-2T-E0w" firstAttribute="centerX" secondItem="EpZ-dO-qhK" secondAttribute="centerX" id="mmx-8c-jqM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="captionLabel" destination="WSI-LT-h0e" id="ds4-oa-a13"/>
+                                            <outlet property="photoView" destination="PdR-2T-E0w" id="Mvc-TE-7nf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
