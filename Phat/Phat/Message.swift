@@ -25,16 +25,16 @@ class Message: NSObject {
 //        createdAt = formatter.dateFromString(createdAtString!)
 //    }
     
-    class func sendMessage(text: String?, withCompletion completion: PFBooleanResultBlock?) {
+    class func sendMessage(text: String?, receiver: PFUser, withCompletion completion: PFBooleanResultBlock?) {
         // Create Parse object PFObject
         let message = PFObject(className: "Message")
         
         // Add relevant fields to the object
         message["text"] = text
         message["sender"] = PFUser.currentUser()
-        //message["receiver"] =
+        message["receiver"] = receiver
         
         // Save object (following function will save the object in Parse asynchronously)
-        message.saveInBackgroundWithBlock(completion)
+        message.saveEventually(completion)
     }
 }

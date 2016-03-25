@@ -18,30 +18,47 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // construct PFQuery
     var query : PFQuery?
+    var receiver : PFUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "onTimer", userInfo: nil, repeats: true)
+        let predicate1 = NSPredicate(format: "%K = %@", "receiver", PFUser.currentUser()!)
+        let predicate2 = NSPredicate(format: "%K = %@", "sender", receiver!)
+        let predicate3 = NSPredicate(format: "%K = %@", "receiver", receiver!)
+        let predicate4 = NSPredicate(format: "%K = %@", "sender", PFUser.currentUser()!)
+        let cPredicate1 = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
+        let cPredicate2 = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate3, predicate4])
+        let cPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [cPredicate1, cPredicate2])
+        
+        query = PFQuery(className: "Message", predicate: cPredicate)
+        //        query?.whereKey("receiver", equalTo: PFUser.currentUser()!)
+        //        query?.whereKey("sender", equalTo: receiver!)
+        //        query?.whereKey("receiver", equalTo: receiver!)
+        //        query?.whereKey("sender", equalTo: PFUser.currentUser()!)
+        query!.orderByAscending("createdAt")
+        //query!.includeKey("sender")
+        query!.limit = 15
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardNotification:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+        onTimer()
+
+        NSTimer.scheduledTimerWithTimeInterval(6, target: self, selector: "onTimer", userInfo: nil, repeats: true)
+        
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(animated: Bool) {
+        tableView.delegate = self
+        tableView.dataSource = self
+        //        tableView.rowHeight = UITableViewAutomaticDimension
+        //        tableView.estimatedRowHeight = 120
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        query?.cancel()
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 120
-        
-        query = PFQuery(className: "Message")
-        query!.orderByAscending("createdAt")
-        query!.includeKey("sender")
-        query!.limit = 20
-        
     }
 
     
@@ -67,10 +84,9 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func onSend(sender: AnyObject) {
-        if textField.text != nil {
-            Message.sendMessage(textField.text, withCompletion: nil)
-            textField.text = nil
-            //sleep(2)
+        if textField.text != "" {
+            Message.sendMessage(textField.text, receiver: receiver!, withCompletion: nil)
+            textField.text = ""
         }
     }
     
